@@ -6,22 +6,22 @@
       "value": "GEN-UNIQUE-8"
     },
     "existingDomainName": {
-      "value": "contoso.com"
+      "value": ""
     },
     "adminUsername": {
-      "value": "AzureAdmin"
+      "value": ""
     },
     "adminPassword": {
       "value": "GEN-PASSWORD"
     },
     "existingVirtualNetworkName": {
-      "value": "vnet01"
+      "value": "VPCxAzureMedicalNA-eastus"
     },
     "existingVirtualNetworkRGName": {
-      "value": "rg01"
+      "value": "VPCxAzureTeradataNA"
     },    
     "existingSubnetName": {
-      "value": "default"
+      "value": "AZR-001-20160212-TestSubnet"
     }
   }
 }
