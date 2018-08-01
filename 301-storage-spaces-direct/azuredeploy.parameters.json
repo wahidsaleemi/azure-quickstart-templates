@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "namePrefix": {
-      "value": "SD"
+      "value": "S2Dtest"
     },
     "existingDomainName": {
       "value": ""
