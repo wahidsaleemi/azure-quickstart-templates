@@ -22,6 +22,15 @@
     },    
     "existingSubnetName": {
       "value": "AZR-001-20160212-TestSubnet"
+    },
+    "vmDiskCount": {
+      "value": 2
+    },
+    "sofsName": {
+      "value": "JnJS2D"
+    },
+    "shareName": {
+      "value": "UPD"
     }
   }
 }
