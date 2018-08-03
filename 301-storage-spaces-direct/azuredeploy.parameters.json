@@ -23,7 +23,7 @@
       "value": "VPCxAzureMedicalNA-eastus"
     },
     "existingVirtualNetworkRGName": {
-      "value": "VPCxAzureTeradataNA"
+      "value": "VPCxAzureMedicalNA"
     },    
     "existingSubnetName": {
       "value": "AZR-001-20160212-TestSubnet"
