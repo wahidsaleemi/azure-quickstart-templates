@@ -269,6 +269,10 @@
       "dependsOn": [
         "virtualMachineLoop"
       ],
+      "copy": {
+        "name": "virtualMachineExtensionLoop",
+        "count": "[sub(parameters('vmCount'),1)]"
+      },
       "properties": {
         "publisher": "Microsoft.Compute",
         "type": "JsonADDomainExtension",
