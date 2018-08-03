@@ -122,11 +122,26 @@
       },
       "defaultValue": ""
     },
-      "oupath": {
+    "domaintojoin": {
       "type": "string",
       "metadata": {
         "description": ""
-      }
+      },
+      "defaultValue": "fs01"
+    },
+    "oupath": {
+      "type": "string",
+      "metadata": {
+        "description": ""
+      },
+      "defaultValue": "fs01"
+    },
+    "domainjoinoptions": {
+      "type": "string",
+      "metadata": {
+        "description": ""
+      },
+      "defaultValue": "fs01"
     }
   },
   "variables": {
@@ -147,9 +162,6 @@
           "contentVersion": "1.0.0.0"
         },
         "parameters": {
-          "oupath": {
-            "value": "[parameters('oupath')]"
-          },
           "namePrefix": {
             "value": "[parameters('namePrefix')]"
           },

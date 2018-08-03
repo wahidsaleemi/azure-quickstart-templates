@@ -1,0 +1,41 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "namePrefix": {
+      "value": "s2d"
+    },
+    "existingDomainName": {
+      "value": ""
+    },
+    "adminUsername": {
+      "value": ""
+    },
+    "adminPassword": {
+      "reference": {
+        "keyVault": {
+            "id": "/subscriptions/ac787c18-bfdd-46e2-824b-ca567f069426/resourceGroups/AZRDMIS16-RG/providers/Microsoft.KeyVault/vaults/RDMISecrets"
+        },
+        "secretName": "DomainJoinPW"
+       }
+      },
+    "existingVirtualNetworkName": {
+      "value": "VPCxAzureMedicalNA-eastus"
+    },
+    "existingVirtualNetworkRGName": {
+      "value": "VPCxAzureMedicalNA"
+    },    
+    "existingSubnetName": {
+      "value": "AZR-001-20160212-TestSubnet"
+    },
+    "vmDiskCount": {
+      "value": 2
+    },
+    "sofsName": {
+      "value": "JnJS2D"
+    },
+    "shareName": {
+      "value": "UPD"
+    }
+  }
+}
