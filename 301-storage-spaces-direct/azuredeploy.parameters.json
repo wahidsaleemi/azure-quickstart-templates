@@ -3,25 +3,39 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "namePrefix": {
-      "value": "GEN-UNIQUE-8"
+      "value": "wss"
     },
     "existingDomainName": {
-      "value": "contoso.com"
+      "value": ""
     },
     "adminUsername": {
-      "value": "AzureAdmin"
+      "value": ""
     },
     "adminPassword": {
-      "value": "GEN-PASSWORD"
-    },
+      "reference": {
+        "keyVault": {
+            "id": "/subscriptions/c05079d4-ae7d-4186-ae74-5f4444129f26/resourceGroups/rg-projtest/providers/Microsoft.KeyVault/vaults/kv-projtest"
+        },
+        "secretName": "sa-servicePW"
+       }
+      },
     "existingVirtualNetworkName": {
-      "value": "vnet01"
+      "value": "vnet-infra-southcentralus"
     },
     "existingVirtualNetworkRGName": {
-      "value": "rg01"
+      "value": "rg-aad"
     },    
     "existingSubnetName": {
-      "value": "default"
+      "value": "vnet-infra-rdmi"
+    },
+    "vmDiskCount": {
+      "value": 2
+    },
+    "sofsName": {
+      "value": "wss-S2D"
+    },
+    "shareName": {
+      "value": "wss-UPD"
     }
   }
 }

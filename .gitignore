@@ -24,3 +24,4 @@ emacs-config.el
 .vscode
 node_modules
 Nese_OMS_NEstedforOMSWS.json
+301-storage-spaces-direct/deploy.ignore.ps1
