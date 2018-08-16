@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "namePrefix": {
-      "value": "wss"
+      "value": "s2d"
     },
     "existingDomainName": {
       "value": ""
@@ -14,28 +14,28 @@
     "adminPassword": {
       "reference": {
         "keyVault": {
-            "id": "/subscriptions/c05079d4-ae7d-4186-ae74-5f4444129f26/resourceGroups/rg-projtest/providers/Microsoft.KeyVault/vaults/kv-projtest"
+            "id": "/subscriptions/ac787c18-bfdd-46e2-824b-ca567f069426/resourceGroups/AZRDMIS16-RG/providers/Microsoft.KeyVault/vaults/RDMISecrets"
         },
-        "secretName": "sa-servicePW"
+        "secretName": "DomainJoinPW"
        }
       },
     "existingVirtualNetworkName": {
-      "value": "vnet-infra-southcentralus"
+      "value": "VPCxAzureMedicalNA-eastus"
     },
     "existingVirtualNetworkRGName": {
-      "value": "rg-aad"
+      "value": "VPCxAzureMedicalNA"
     },    
     "existingSubnetName": {
-      "value": "vnet-infra-rdmi"
+      "value": "AZR-001-20160212-TestSubnet"
     },
     "vmDiskCount": {
       "value": 2
     },
     "sofsName": {
-      "value": "wss-S2D"
+      "value": "SOFS1"
     },
     "shareName": {
-      "value": "wss-UPD"
+      "value": "UPD1"
     }
   }
 }
