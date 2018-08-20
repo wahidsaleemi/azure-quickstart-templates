@@ -353,7 +353,7 @@
             "vmNamePrefix": "[variables('vmNamePrefix')]",
             "vmCount": "[parameters('vmCount')]",
             "vmDiskSize": "[parameters('vmDiskSize')]",
-            "retryCount": 5,
+            "retryCount": 6,
             "witnessStorageName": "[variables('witnessStorageName')]",
             "witnessStorageEndpoint": "[replace(split(reference(concat('Microsoft.Storage/storageAccounts/', variables('witnessStorageName'))).primaryEndpoints.blob, 'blob.')[1], '/', '')]",
             "witnessStorageKey": {
