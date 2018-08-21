@@ -344,7 +344,6 @@
             "sofsName": "[parameters('sofsName')]",
             "shareName": "[parameters('shareName')]",
             "nodenames": "[parameters('nodenames')]",
-            "vmCount": "[variables('vmCount')]",
             "vmDiskSize": "[parameters('vmDiskSize')]",
             "retryCount": 6,
             "witnessStorageName": "[variables('witnessStorageName')]",
