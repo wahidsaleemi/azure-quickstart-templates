@@ -127,9 +127,9 @@
     "storageNamePrefix": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id),'vm')]",
     "witnessStorageName": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id),'cw')]",
     "witnessStorageType": "Standard_LRS",
-    "vmNamePrefix": "[concat(parameters('namePrefix'),'-s2d-')]",
-    "vmAvailabilitySetName": "[concat(variables('vmNamePrefix'),'as')]",
-    "clusterName": "[concat(variables('vmNamePrefix'),'c')]",
+    "nodenames": "[concat(parameters('nodename')[copyindex()],'-s2d-')]",
+    "vmAvailabilitySetName": "[concat(variables('nodenames'),'as')]",
+    "clusterName": "[concat(variables('nodenames'),'c')]",
     "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
     "s2dPrepModulesURL": "[concat(parameters('_artifactsLocation'),'/dsc/prep-s2d.ps1.zip',parameters('_artifactsLocationSasToken'))]",
     "s2dPrepFunction": "PrepS2D.ps1\\PrepS2D",
@@ -175,13 +175,13 @@
       "kind": "Storage"
     },
     {
-      "name": "[concat(variables('vmNamePrefix'), copyindex(), '-nic')]",
+      "name": "[concat(variables('nodenames'), copyindex(), '-nic')]",
       "type": "Microsoft.Network/networkInterfaces",
       "location": "[parameters('location')]",
       "apiVersion": "2015-06-15",
       "copy": {
         "name": "nicLoop",
-        "count": "[parameters('vmCount')]"
+        "count": "[length(parameters('nodenames'))]"
       },
       "properties": {
         "ipConfigurations": [
@@ -202,9 +202,9 @@
       "apiVersion": "2015-01-01",
       "copy": {
         "name": "virtualMachineLoop",
-        "count": "[parameters('vmCount')]"
+        "count": "[length(parameters('nodenames')]"
       },
-      "name": "[concat(variables('vmNamePrefix'),copyindex(),'-newVM')]",
+      "name": "[concat(variables('nodenames'),copyindex(),'-newVM')]",
       "dependsOn": [
         "storageAccountLoop",
         "nicLoop",
@@ -217,7 +217,7 @@
         },
         "parameters": {
           "vmName": {
-            "value": "[concat(variables('vmNamePrefix'), copyindex())]"
+            "value": "[concat(variables('nodenames'), copyindex())]"
           },
           "storageAccountUri": {
             "value": "[reference(concat('Microsoft.Storage/storageAccounts/',variables('StorageNamePrefix'),copyIndex()),variables('apiVersionStorage')).primaryEndpoints.blob]"
@@ -264,7 +264,7 @@
     {
       "apiVersion": "2018-06-01",
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmNamePrefix'),copyindex(),'/domainjoin')]",
+      "name": "[concat(variables('nodenames'),copyindex(),'/domainjoin')]",
       "location": "[parameters('location')]",
       "dependsOn": [
         "virtualMachineLoop"
@@ -292,7 +292,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmNamePrefix'),copyindex(1),'/s2dPrep')]",
+      "name": "[concat(variables('nodenames'),copyindex(1),'/s2dPrep')]",
       "apiVersion": "2018-06-01",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -329,7 +329,7 @@
     },
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
-      "name": "[concat(variables('vmNamePrefix'),'0/s2dConfig')]",
+      "name": "[concat(variables('nodenames'),'0/s2dConfig')]",
       "apiVersion": "2018-06-01",
       "location": "[parameters('location')]",
       "dependsOn": [
@@ -350,7 +350,7 @@
             "clusterName": "[variables('clusterName')]",
             "sofsName": "[parameters('sofsName')]",
             "shareName": "[parameters('shareName')]",
-            "vmNamePrefix": "[variables('vmNamePrefix')]",
+            "nodenames": "[variables('nodenames')]",
             "vmCount": "[parameters('vmCount')]",
             "vmDiskSize": "[parameters('vmDiskSize')]",
             "retryCount": 6,
