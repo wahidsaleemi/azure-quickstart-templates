@@ -4,9 +4,12 @@
   "parameters": {
     "nodenames": {
         "value": [
-        "s2d-vm-",
-        "s2d-vm-"
+        "AZRAAGNVA1027",
+        "AZRAAGNVA1028"
       ]
+    },
+    "clustername": {
+      "value": "AZRAAGNVA1025"
     },
     "existingDomainName": {
       "value": ""
@@ -31,10 +34,7 @@
     "existingSubnetName": {
       "value": "AZR-001-20160212-TestSubnet"
     },
-    "vmDiskCount": {
-      "value": 2
-    },
-    "sofsName": {
+      "sofsName": {
       "value": "SOFS1"
     },
     "shareName": {

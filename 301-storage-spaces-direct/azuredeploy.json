@@ -4,11 +4,12 @@
   "parameters": {
     "nodenames": {
       "type": "array",
-      "minLength": 3,
-      "maxLength": 8,
       "metadata": {
-        "description": "Naming prefix for each new resource created. 3-char min, 8-char max, lowercase alphanumeric"
+        "description": "Array of server names given in Parameters, template loops through node names for resource creation"
       }
+    },
+    "clustername": {
+      "type":"string"
     },
     "storageAccountType": {
       "type": "string",
@@ -29,15 +30,6 @@
         "description": "Size of the S2D VMs to be created"
       },
       "defaultValue": "Standard_DS1_v2"
-    },
-    "vmCount": {
-      "type": "int",
-      "minValue": 2,
-      "maxValue": 3,
-      "metadata": {
-        "description": "Number of S2D VMs to be created in cluster (Min=2, Max=3)"
-      },
-      "defaultValue": 2
     },
     "vmDiskSize": {
       "type": "int",
@@ -151,7 +143,10 @@
             "value": "[parameters('oupath')]"
           },
           "nodenames": {
-            "value": "[length(parameters('nodenames'))]"
+            "value": "[parameters('nodenames')]"
+          },
+          "clustername": {
+            "value": "[parameters('clustername')]"
           },
           "domainName": {
             "value": "[parameters('existingDomainName')]"
@@ -170,9 +165,6 @@
           },
           "vmSize": {
             "value": "[parameters('vmSize')]"
-          },
-          "vmCount": {
-            "value": "[parameters('vmCount')]"
           },
           "vmDiskSize": {
             "value": "[parameters('vmDiskSize')]"
