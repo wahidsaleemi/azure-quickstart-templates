@@ -117,8 +117,8 @@
   },
   "variables": {
     "apiVersionStorage": "2016-01-01",
-    "storageNamePrefix": "[concat(parameters('nodenames')[0],uniqueString(resourceGroup().id),'vm')]",
-    "witnessStorageName": "[concat(parameters('nodenames')[0],uniqueString(resourceGroup().id),'cw')]",
+    "storageNamePrefix": "[skip(concat(toLower(parameters('nodenames')[0]),uniqueString(resourceGroup().id),'vm'),6)]",
+    "witnessStorageName": "[skip(concat(toLower(parameters('nodenames')[0]),uniqueString(resourceGroup().id),'cw'),6)]",
     "witnessStorageType": "Standard_LRS",
     "vmAvailabilitySetName": "[concat(parameters('nodenames')[0],'as')]",
     "vmCount":"[length(parameters('nodenames'))]",
