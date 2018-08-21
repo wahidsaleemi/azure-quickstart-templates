@@ -25,3 +25,4 @@ emacs-config.el
 node_modules
 Nese_OMS_NEstedforOMSWS.json
 301-storage-spaces-direct/deploy.ignore.ps1
+301-storage-spaces-direct/nestedtemplates/deploy.ignore.ps1
