@@ -3,7 +3,7 @@
   "contentVersion": "1.0.0.0",
   "parameters": {
     "nodenames": {
-      "type": "string",
+      "type": "array",
       "minLength": 3,
       "maxLength": 8,
       "metadata": {

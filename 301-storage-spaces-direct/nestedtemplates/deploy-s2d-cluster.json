@@ -2,7 +2,7 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
-    "namePrefix": {
+    "nodenames": {
       "type": "string",
       "minLength": 3,
       "maxLength": 8,
@@ -124,10 +124,10 @@
   },
   "variables": {
     "apiVersionStorage": "2016-01-01",
-    "storageNamePrefix": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id),'vm')]",
-    "witnessStorageName": "[concat(parameters('namePrefix'),uniqueString(resourceGroup().id),'cw')]",
+    "storageNamePrefix": "[concat(parameters('nodenames'),uniqueString(resourceGroup().id),'vm')]",
+    "witnessStorageName": "[concat(parameters('nodenames'),uniqueString(resourceGroup().id),'cw')]",
     "witnessStorageType": "Standard_LRS",
-    "nodenames": "[concat(parameters('nodename')[copyindex()],'-s2d-')]",
+    "nodenames": "[concat(parameters('nodenames')[copyindex()],'-s2d-')]",
     "vmAvailabilitySetName": "[concat(variables('nodenames'),'as')]",
     "clusterName": "[concat(variables('nodenames'),'c')]",
     "vmLoopTemplateURL": "[concat(parameters('_artifactsLocation'),'/nestedtemplates/newVM.json',parameters('_artifactsLocationSasToken'))]",
@@ -202,7 +202,7 @@
       "apiVersion": "2015-01-01",
       "copy": {
         "name": "virtualMachineLoop",
-        "count": "[length(parameters('nodenames')]"
+        "count": "[length(parameters('nodenames'))]"
       },
       "name": "[concat(variables('nodenames'),copyindex(),'-newVM')]",
       "dependsOn": [
