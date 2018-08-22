@@ -353,7 +353,7 @@
               "password": "PrivateSettingsRef:witnessStorageKey"
             },
             "adminCreds": {
-              "userName": "[parameters('adminUsername')]",
+              "userName": "[concat(parameters('adminUsername'),'@ITS.',parameters('domainName'))]",
               "password": "PrivateSettingsRef:adminPassword"
             }
           }
