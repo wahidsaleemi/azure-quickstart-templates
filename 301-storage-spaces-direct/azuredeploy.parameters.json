@@ -11,10 +11,10 @@
     "clustername": {
       "value": "AZRAAGNVA1025"
     },
-    "privateIPAddress1": {
+    "privateIPAddresses": {
       "value":[
       "10.67.32.27",
-      "10.67.32.27"  
+      "10.67.32.28"  
       ]  
     },
     "existingDomainName": {
