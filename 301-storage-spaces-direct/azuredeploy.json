@@ -8,8 +8,8 @@
         "description": "Array of server names given in Parameters, template loops through node names for resource creation"
       }
     },
-    "privateIPAddress1": {
-      "type":"string"
+    "privateIPAddress": {
+      "type":"array"
     },
     "clustername": {
       "type":"string"
@@ -149,9 +149,9 @@
             "value": "[parameters('nodenames')]"
           },
           "privateIPAddress1": {
-            "value": "[parameters('nodenames')]"
+            "value": "[parameters('privateIPaddress')]"
           },
-          "clustername": {
+            "clustername": {
             "value": "[parameters('clustername')]"
           },
           "domainName": {
