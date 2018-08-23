@@ -148,7 +148,7 @@
           "nodenames": {
             "value": "[parameters('nodenames')]"
           },
-          "privateIPAddress1": {
+          "privateIPAddresses": {
             "value": "[parameters('privateIPaddresses')]"
           },
             "clustername": {
