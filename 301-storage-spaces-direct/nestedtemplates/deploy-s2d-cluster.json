@@ -11,8 +11,8 @@
     "clustername": {
       "type": "string"
     },
-    "privateIPAddress1" : {
-      "type" :"string"
+    "privateIPAddresses" : {
+      "type" :"array"
     },
     "oupath": {
       "type": "string"
@@ -179,16 +179,12 @@
         "count": "[variables('vmCount')]"
       },
       "properties": {
-        "addressSpace": {
-          "addressPrefixes": [
-            "10.0.0.0/24"]
-        },
         "ipConfigurations": [
           {
             "name": "ipconfig1",
             "properties": {
               "privateIPAllocationMethod": "Static",
-              "privateIPAddress": "[parameters('privateIPAddress1')]",
+              "privateIPAddress": "[parameters('privateIPAddresses')[copyIndex()]]",
               "subnet": {
                 "id": "[parameters('nicSubnetUri')]"
               }
