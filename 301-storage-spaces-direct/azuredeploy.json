@@ -8,6 +8,9 @@
         "description": "Array of server names given in Parameters, template loops through node names for resource creation"
       }
     },
+    "privateIPAddress1": {
+      "type":"string"
+    },
     "clustername": {
       "type":"string"
     },
@@ -143,6 +146,9 @@
             "value": "[parameters('oupath')]"
           },
           "nodenames": {
+            "value": "[parameters('nodenames')]"
+          },
+          "privateIPAddress1": {
             "value": "[parameters('nodenames')]"
           },
           "clustername": {
