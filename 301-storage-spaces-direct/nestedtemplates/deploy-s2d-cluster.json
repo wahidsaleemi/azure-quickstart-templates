@@ -36,6 +36,9 @@
         "description": "Password for the Administrator account of the existing Active Directory Domain"
       }
     },
+    "localAdminPassword": {
+      "type": "securestring"
+    },
     "storageAccountType": {
       "type": "string",
       "allowedValues": [
@@ -235,6 +238,9 @@
           },
           "adminPassword": {
             "value": "[parameters('adminPassword')]"
+          },
+          "localAdminPassword": {
+            "value": "[parameters('localAdminPassword')]"
           },
           "_artifactsLocation": {
             "value": "[parameters('_artifactsLocation')]"

@@ -14,6 +14,9 @@
     "clustername": {
       "type":"string"
     },
+    "localAdminPassword": {
+      "type": "securestring"
+    },
     "storageAccountType": {
       "type": "string",
       "allowedValues": [
@@ -41,7 +44,7 @@
       "metadata": {
         "description": "Size of each data disk in GB on each S2D VM (Min=128, Max=1023)"
       },
-      "defaultValue": 1023
+      "defaultValue": 128
     },
     "vmDiskCount": {
       "type": "int",
@@ -162,6 +165,9 @@
           },
           "adminPassword": {
             "value": "[parameters('adminPassword')]"
+          },
+          "localAdminPassword": {
+            "value": "[parameters('localAdminPassword')]"
           },
           "storageAccountType": {
             "value": "[parameters('storageAccountType')]"
